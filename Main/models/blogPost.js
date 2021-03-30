@@ -18,9 +18,6 @@ blogPost.init(
     content: {
       type: DataTypes.STRING,
     },
-    comment: {
-      type: DataTypes.STRING,
-    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -36,7 +33,6 @@ blogPost.init(
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'BlogPost',
