@@ -3,7 +3,7 @@ const { blogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Get all Blog Post and JOIN with user data
-router.get('/', async (req, res) => {
+router.get('/', withAuth ,async (req, res) => {
   try {
     const blogData = await blogPost.findAll({
       include: [
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             model: User,
             attributes: ['name'],
           },
-        },
+        }, 
       ],
     });
 
@@ -80,11 +80,15 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 
   res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
 
 module.exports = router;
