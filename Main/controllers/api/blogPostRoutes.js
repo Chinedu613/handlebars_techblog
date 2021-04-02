@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { blogPost, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+//const withAuth = require('../../utils/auth');
 
 // Get all Blog data
-router.get('/', withAuth, async (req, res) => {
+router.get('/', /* withAuth, */ async (req, res) => {
   try {
     const blogData = await blogPost.findAll({ include: User });
     res.status(200).json(blogData);
@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', /*  withAuth, */  async (req, res) => {
   try {
     const blogPostData = await blogPost.findByPk( req.params.id, {
       include: [
@@ -35,7 +35,7 @@ router.get('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.post('/', withAuth, async (req, res) => {
+router.post('/', /* withAuth, */ async (req, res) => {
   try {
     const newblogPost = await blogPost.create({
       ...req.body,
@@ -48,7 +48,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', /* withAuth, */ async (req, res) => {
   try {
     const blogPostData = await blogPost.destroy({
       where: {

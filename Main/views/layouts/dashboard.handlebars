@@ -28,8 +28,6 @@
         {{#if logged_in}}
         <a class="nav-link" href="/Dashboard">Dashboard</a> |
         <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a class="nav-link" href="/login">login</a>
         {{/if}}
             </div>
           </div>
@@ -38,9 +36,10 @@
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
+
     </main>
     <footer>
-      
+        <h3><a href="dashboard/new">New Post</a></h3>
     </footer>
   </div>
 
