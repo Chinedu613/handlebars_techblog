@@ -22,7 +22,7 @@ Comment.init(
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'user',
+            model: 'User',
             key: 'id',
         },
     },
@@ -39,7 +39,7 @@ Comment.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment',
+        modelName: 'Comment',
     }
 );
 

@@ -30,7 +30,7 @@ blogPost.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'BlogPost',
+    modelName: 'blogPost',
   }
 );
 

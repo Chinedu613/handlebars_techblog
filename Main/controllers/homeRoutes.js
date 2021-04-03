@@ -3,32 +3,40 @@ const { blogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Get all Blog Post and JOIN with user data
-router.get('/', withAuth ,async (req, res) => {
+router.get('/', async (req, res) => {
+
+
   try {
+    console.log('try');
     const blogData = await blogPost.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-        {
+        include: [
+/*         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id'],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['email'],
           },
-        }, 
-      ],
+        }, */
+        {
+          model: User,
+          attributes: ['email'],
+        },
+      ], 
     });
-
+    
+    if(!blogData){
+      console.log('are we here');
+      res.render('homepage');
+    }
+    console.log('here we are the else')
     // Serialize data so the template can read it
     const blogPosts = blogData.map((project) => blogData.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
       blogPosts,
-      logged_in: req.session.logged_in,
+      //logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -41,7 +49,7 @@ router.get('/blog/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['email'],
         },
       ],
     });

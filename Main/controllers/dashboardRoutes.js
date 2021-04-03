@@ -8,18 +8,18 @@ router.get('/', withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ['id', 'title', 'content', ''],
+      attributes: ['id', 'title', 'content'],
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['email'],
         },
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'createdAt'],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['email'],
           },
         },
       ],
@@ -45,7 +45,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['email'],
         },
         {
           model: Comment,
@@ -59,7 +59,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
           ],
           include: {
             model: User,
-            attributes: ['name'],
+            attributes: ['email'],
           },
         },
       ],

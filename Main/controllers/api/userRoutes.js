@@ -5,9 +5,14 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
+
+    console.log('hey------', req.body)
+
     const userData = await User.create(req.body);
 
+    console.log(userData);
     req.session.save(() => {
+      console.log('.....line 16', userData);
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
