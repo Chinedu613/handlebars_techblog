@@ -36,6 +36,7 @@ router.get('/:id', withAuth,  async (req, res) => {
   }
 });
 router.post('/', withAuth, async (req, res) => {
+  console.log('line 39: ',req.body);
   try {
     const newblogPost = await blogPost.create({
       ...req.body,

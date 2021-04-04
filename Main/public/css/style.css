@@ -34,25 +34,25 @@ header, .project:not(:last-child) {
 }
 
 main {
-  background-color: #003566;
   height: 100%;
   width: 100%;
 }
 
 .container {
-  background-color: white;
-  border-color: #FFD60A;
-  border-style: solid;
-  border-width: 10px;
-  border-radius: 5px;
   padding: 15px;
+}
+
+.login-container{
+  background-color: #E76F51;
+  border-radius: 10px;
+  padding: 10px;
 }
 .homepage {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#allposts{
+#allposts {
   margin: 0;
   padding: 0;
   background-color: white;
@@ -62,3 +62,7 @@ main {
   border-radius: 5px;
 }
 
+.dashboxes {
+  height: 800px;
+  padding: 20px;
+}

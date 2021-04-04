@@ -77,7 +77,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('new-post', withAuth, (req, res) => {
+router.get('/new-post', withAuth, (req, res) => {
   res.render('new-post');
 });
 
