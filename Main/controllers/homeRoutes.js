@@ -29,13 +29,12 @@ router.get('/', async (req, res) => {
       console.log('are we here');
       res.render('homepage');
     }
-    console.log('here we are the else')
     // Serialize data so the template can read it
-    const blogPosts = blogData.map((project) => blogData.get({ plain: true }));
-
+    const blogPosts = blogData.map((blogData) => blogData.get({ plain: true }));
+    console.log('-------------------->', ...blogPosts)
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      blogPosts,
+      ...blogPosts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

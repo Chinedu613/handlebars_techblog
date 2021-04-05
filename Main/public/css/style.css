@@ -66,3 +66,11 @@ main {
   height: 800px;
   padding: 20px;
 }
+.card {
+  margin: 0px;
+  border: 0px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}

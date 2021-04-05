@@ -15,73 +15,22 @@
   </head>
   <body>
     <!-- NAV -->
-    
-      <header class="container-fluid">
-        <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light"></nav>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                >Disabled</a
-              >
-            </div>
-          </div>
-          <div class="row">
-            <a class="navbar-brand" href="#">Tech Blog</a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-mdb-toggle="collapse"
-              data-mdb-target="#navbarNavAltMarkup"
-              aria-controls="navbarNavAltMarkup"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <i class="fas fa-bars"></i>
-            </button>
-          </div>
-        </nav>
-        </div>
-      </header>
-    
-    <!-- Main -->
-    <main class="homepage">
-      <div class="container homebox">
-        <div class="row">
-          <!-- Login/Signup Form -->
-          <div class="col-md-12">
-            <h2>Login</h2>
-            <form class="form login-form">
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address:
-                </label>
-                <input
-                  type="email"
-                  class="form-input"
-                  id="email-login"
-                  aria-describedby="emailHelp"
-                />
-                <div id="emailHelp" class="form-text">
-                  We'll never share your email with anyone else.
+
+          <article class="container-fluid">
+            <div class="row">
+          <!-- Loop over each object in the projects array -->
+              <div class="col-md-6 dashboxes">
+                <div class="row">
+
                 </div>
               </div>
-              <div class="mb-3">
-                <label for="password-login" class="form-label"
-                  >Password:
-                </label>
-                <input type="password" class="form-input" id="password-login" />
+              <div class="col-md-6">
+                <div class="newpost">
+                  <a class="btn btn-primary" href="/dashboard/new-post" role="button">Link</a>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
+            </div>
+          </article>
           <!--               <div class="col-md-12">
                 <h2>Signup</h2>
                 <div class="mb-3">

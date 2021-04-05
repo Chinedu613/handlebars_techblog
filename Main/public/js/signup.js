@@ -12,11 +12,10 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-        console.log('......line 39', response);
         document.location.replace('/dashboard');
-        } else {
-        alert(response.statusText);
         }
+        alert(response.statusText);
+        
     }
 };
 

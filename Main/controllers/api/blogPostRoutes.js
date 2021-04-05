@@ -11,7 +11,7 @@ router.get('/',  withAuth,  async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// Get a particular Post 
 router.get('/:id', withAuth,  async (req, res) => {
   try {
     const blogPostData = await blogPost.findByPk( req.params.id, {
@@ -35,8 +35,9 @@ router.get('/:id', withAuth,  async (req, res) => {
     res.status(500).json(err);
   }
 });
+// Sends Blog Post Data to Database
 router.post('/', withAuth, async (req, res) => {
-  console.log('line 39: ',req.body);
+  
   try {
     const newblogPost = await blogPost.create({
       ...req.body,

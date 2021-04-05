@@ -16,8 +16,10 @@ const addPost = async (event) => {
         });
     if (response.ok) {
         document.location.replace('/dashboard');
-    }   alert('Failed to create post');
+    }   else {
+        alert('Failed to create post');
     }
+}
 };
 
 document
