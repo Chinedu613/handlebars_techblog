@@ -2,8 +2,37 @@
   <div class="row">
     <div class="col-md-12 dashboxes">
       <div class="row">
-        {{>postcard}}
+        <div class="card">
+
+          {{>postcard}}
+
+        </div>
+        {{#each this.Comments}}
+        <div class="row">
+          <div class="card">
+            {{>comment}}
+          </div>
+        </div>
+        {{/each}}
+        {{#if logged_in}}
+        <div class="row">
+                  <div class="col-12">
+                      <form id="commentForm">
+                        <input type="hidden" id="post_id" value="{{id}}" />
+                          <div class="mb-3">
+                              <label for="commentContent" class="form-label">Comment Here: </label>
+                              <textarea class="form-control" id="commentContent"></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                  </div>
+              </div>
+            </div>
+         {{!--  <a href="/blogpost/{{id}}" class="btn btn-primary">Comment on Post</a> --}}
+          {{/if}}
+        </div>
       </div>
     </div>
   </div>
 </article>
+<script src="/js/comment.js"></script>

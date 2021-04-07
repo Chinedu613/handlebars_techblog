@@ -11,7 +11,7 @@ router.get('/',  withAuth,  async (req, res) => {
     res.status(500).json(err);
   }
 });
-// Get a particular Post 
+// Get a Particular Post 
 router.get('/:id', withAuth,  async (req, res) => {
   try {
     const blogPostData = await blogPost.findByPk( req.params.id, {
@@ -49,7 +49,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
+// Delete Blog Post Data 
 router.delete('/:id', withAuth,  async (req, res) => {
   try {
     const blogPostData = await blogPost.destroy({

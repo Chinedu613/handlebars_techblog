@@ -26,20 +26,20 @@ router.get('/', withAuth, async (req, res) => {
         },
       ],
     });
-    const blogPosts = blogData.map((blogPost) => blogPost.get({ plain: true }));
+    const viewPost = blogData.map((blogPost) => blogPost.get({ plain: true }));
 
-    // Render Blog Post on User's Dashboard 
-    console.log(...blogPosts);
+// Render All Blog Posts on User's Dashboard 
+    console.log(...viewPost);
 
     res.render('dashboard', {
-      blogPosts,
+      viewPost,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
+// Edit Blog Data
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const blogPostData = await blogPost.findByPk({
@@ -56,8 +56,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
           model: Comment,
           attributes: [
             'id',
-            'title',
-            'content',
+            'comment_text',
             'post_id',
             'user_id',
             'createdAt',
@@ -81,7 +80,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// Create a New Post 
 router.get('/new-post', withAuth, (req, res) => {
   res.render('new-post');
 });

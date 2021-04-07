@@ -3,9 +3,10 @@
 <!-- Loop over each object in the projects array -->
     <div class="col-md-12 dashboxes">
      {{#each blogPosts as |blogPost|}} 
-      <div class="row">
-        {{>postcard}}
-      </div>
+        <div class="card">
+          {{>postcard}}
+          <a href="/blogpost/{{id}}" class="btn btn-primary">View Post</a>
+        </div>
        {{/each}}
     </div>
   </div>
