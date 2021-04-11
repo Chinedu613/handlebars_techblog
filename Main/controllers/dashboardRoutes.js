@@ -41,10 +41,11 @@ router.get('/', withAuth, async (req, res) => {
 });
 // Edit Blog Data
 router.get('/edit/:id', withAuth, async (req, res) => {
+  
   try {
-    const blogPostData = await blogPost.findByPk({
+    const blogPostData = await blogPost.findByPk(req.params.id, {
       where: {
-        id: req.params.id,
+        user_id: req.params.id,
       },
       attributes: ['id', 'title', 'content', 'createdAt'],
       include: [
@@ -52,28 +53,12 @@ router.get('/edit/:id', withAuth, async (req, res) => {
           model: User,
           attributes: ['email'],
         },
-        {
-          model: Comment,
-          attributes: [
-            'id',
-            'comment_text',
-            'post_id',
-            'user_id',
-            'createdAt',
-          ],
-          include: {
-            model: User,
-            attributes: ['email'],
-          },
-        },
-      ],
+      ], 
     });
-    const editPost = blogPostData.map((blogPostData) =>
-      blogPostData.get({ plain: true })
-    );
-
+    const editPost = blogPostData.get({ plain: true });
+    console.log('getting posts', editPost)
     res.render('edit', {
-      editPost,
+      ...editPost,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

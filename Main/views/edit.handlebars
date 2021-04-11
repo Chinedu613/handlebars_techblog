@@ -5,7 +5,7 @@
                     <input type="hidden" id="post_id" value={{id}} />
                     <div class="mb-3">
                         <label for="editTitle" class="form-label">Title: </label>
-                        <input type="text" size="75" class="form-control" id="editTitle" placeholder="edit Title">
+                        <input type="text" size="75" class="form-control" id="editTitle" value="{{ title }}">
                     </div>
                     <div class="mb-3">
                         <label for="editContent" class="form-label">Content Area: </label>
@@ -15,17 +15,6 @@
                 </form>
             </div>
         </div>
-            <div class="row">
-                <div class="col-12">
-                    <form id="commentForm">
-                        <input type="hidden" id="post_id" value="{{id}}" />
-                        <div class="mb-3">
-                            <label for="commentContent" class="form-label">Comment Here: </label>
-                            <textarea class="form-control" id="commentContent"></textarea>
-                        </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
     </div>
     
+<script src="/js/edit.js"></script>

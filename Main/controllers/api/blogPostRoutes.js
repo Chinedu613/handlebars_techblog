@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { blogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
 // Get all Blog data
 router.get('/',  withAuth,  async (req, res) => {
   try {
@@ -41,7 +42,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newblogPost = await blogPost.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: req.session.user_id
     });
 
     res.status(200).json(newblogPost);
@@ -49,8 +50,30 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// Update a Blog Post
+router.put('/:id', withAuth, async (req, res) => {
+
+  try {
+    const postData = await blogPost.update({
+      ...req.body
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    });
+    console.log(postData);
+      res.status(200).json(postData);
+
+  } catch(err){
+    console.log(err);
+      res.status(500).json(err);
+  }
+})
 // Delete Blog Post Data 
 router.delete('/:id', withAuth,  async (req, res) => {
+  console.log('we made it here')
   try {
     const blogPostData = await blogPost.destroy({
       where: {
