@@ -74,3 +74,11 @@ main {
   display: flex;
   justify-content: space-between;
 }
+.edit-delete__btn {
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+
+.comment__card {
+  margin: 2em auto;
+}

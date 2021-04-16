@@ -1,11 +1,9 @@
-          <div id="allposts" class="col-md-12">
-          {{!--   <div class="card"> --}}
+          <div id="allposts" class="col-md-12 comment__card">
               <div class="card-body">
-
-                <p class="card-text text-truncate">{{comment_text}}</p>
+                <p class="card-text">{{comment_text}}</p>
               </div>
               <div class="card-footer bg-transparent text-muted">
-              <div>{{this.User.email}}</div>
-              <div>{{format_date createdAt}}</div>
+                <div>{{this.User.email}}</div>
+                <div>{{format_date createdAt}}</div>
               </div>
           </div>

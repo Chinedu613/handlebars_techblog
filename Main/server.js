@@ -11,12 +11,16 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3011;
 
+const SESSION_IDLE_TIMEOUT = 1000 * 60 * 5
+
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    expires: SESSION_IDLE_TIMEOUT
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
